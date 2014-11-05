@@ -1,0 +1,1 @@
+angular.module('sampleApp', ['ngRoute', 'appRoutes', 'ui.bootstrap', 'LoginCtrl', 'MainCtrl', 'ProductCtrl', 'SignupCtrl']);
