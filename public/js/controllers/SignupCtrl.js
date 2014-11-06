@@ -17,10 +17,10 @@ angular.module('SignupCtrl', []).controller('SignupController', function($scope,
 			// Error: authentication failed
 			// $rootScope.message = 'Authentication failed.';
 			$location.url('/');
-			$scope.alert = {
-				type : 'danger',
-				msg : 'Username or password does not exist'
-			};
+			// $scope.alert = {
+				// type : 'danger',
+				// msg : 'Username or password does not exist'
+			// };
 		});
 	};
 
