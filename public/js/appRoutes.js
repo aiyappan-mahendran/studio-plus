@@ -22,7 +22,7 @@ function($stateProvider, $urlRouterProvider) {
 						deferred.reject();
 					}, 0);
 					// $location.url('/login');
-					$location.url('/');
+					$location.url('/login');
 				}
 			});
 	
@@ -91,4 +91,3 @@ function($stateProvider, $urlRouterProvider) {
 		$http.post('/logout');
 	};
 });
-
