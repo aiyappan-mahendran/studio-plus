@@ -9,6 +9,7 @@
         "jquery": "latest",
         "angular-resource": "latest",
         "angular-bootstrap": "latest",
-        "angular-ui-router": "latest"   
+        "angular-ui-router": "latest",
+        "angular-cookies": "latest"   
     }
 }

@@ -1,102 +1,126 @@
-// grab the product model we just created
-var Product = require('./models/product');
+var _ =           require('underscore')
+    , path =      require('path')
+    , AuthCtrl =  require('./controllers/auth')
+    , ProductCtrl =  require('./controllers/productServerCtrl')
+    , userRoles = require('../public/js/routingConfig').userRoles
+    , accessLevels = require('../public/js/routingConfig').accessLevels;
+
+var routes = [
+
+    // Views
+    {
+        path: '/views/*',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            var requestedView = path.join('./', req.url);
+            res.render(requestedView);
+        }]
+    },
+    
+    {
+        path: '/api/products',
+        httpMethod: 'GET',
+        middleware: [ProductCtrl.getAllProducts],
+        accessLevel: accessLevels.admin
+    },
+
+    {
+        path: '/api/products',
+        httpMethod: 'POST',
+        middleware: [ProductCtrl.createProduct],
+        accessLevel: accessLevels.admin
+    },
+    
+    {
+        path: '/api/products/:product_id',
+        httpMethod: 'DELETE',
+        middleware: [ProductCtrl.deleteProduct],
+        accessLevel: accessLevels.admin
+    },
+
+    // Local Auth
+    //TBD
+    /*
+    {
+            path: '/loggedin',
+            httpMethod: 'GET',
+            middleware: [AuthCtrl.loggedin]
+        },*/
+    
+    {
+        path: '/login',
+        httpMethod: 'POST',
+        middleware: [AuthCtrl.login]
+    },
+    {
+        path: '/logout',
+        httpMethod: 'POST',
+        middleware: [AuthCtrl.logout]
+    },
+    {
+        path: '/signup',
+        httpMethod: 'POST',
+        middleware: [AuthCtrl.signup]
+    },
+
+    // All other get requests should be handled by AngularJS's client-side routing system
+    {
+        path: '/*', //is it / ?
+        httpMethod: 'GET',
+        middleware: [function(req, res) {
+            var role = userRoles.public, username = '';
+            if(req.user) {
+                role = req.user.role;
+                username = req.user.username;
+            }
+            res.cookie('user', JSON.stringify({
+                'username': username,
+                'role': role
+            }));
+            res.render('index', {
+				title : 'Express'
+			});
+        }]
+    }
+];
 
 module.exports = function(app, passport) {
 
-	// server routes ===========================================================
-	// handle things like api calls
-	// authentication routes
+    _.each(routes, function(route) {
+        route.middleware.unshift(ensureAuthorized);
+        var args = _.flatten([route.path, route.middleware]);
 
-	// sample api route
-	app.get('/api/products', auth, function(req, res) {
-		// use mongoose to get all products in the database
-		Product.find(function(err, products) {
+        switch(route.httpMethod.toUpperCase()) {
+            case 'GET':
+                app.get.apply(app, args);
+                break;
+            case 'POST':
+                app.post.apply(app, args);
+                break;
+            case 'PUT':
+                app.put.apply(app, args);
+                break;
+            case 'DELETE':
+                app.delete.apply(app, args);
+                break;
+            default:
+                throw new Error('Invalid HTTP method specified for route ' + route.path);
+                break;
+        }
+    });
 
-			// if there is an error retrieving, send the error.
-			// nothing after res.send(err) will execute
-			if (err)
-				res.send(err);
-
-			res.json(products);
-			// return all nerds in JSON format
-		});
-	});
-
-	// create product and send back all products after creation
-	app.post('/api/products', auth, function(req, res) {
-
-		// create a todo, information comes from AJAX request from Angular
-		Product.create({
-			name : req.body.name,
-			code : req.body.code,
-			minQuantity : req.body.minQuantity,
-			price : req.body.price,
-			done : false
-		}, function(err, todo) {
-			if (err)
-				res.send(err);
-
-			// get and return all the todos after you create another
-			Product.find(function(err, products) {
-				if (err)
-					res.send(err)
-				res.json(products);
-			});
-		});
-
-	});
-	// route to handle delete goes here (app.delete)
-	app.delete('/api/products/:product_id', auth, function(req, res) {
-		Product.remove({
-			_id : req.params.product_id
-		}, function(err, todo) {
-			if (err)
-				res.send(err);
-
-			// get and return all the todos after you create another
-			Product.find(function(err, products) {
-				if (err)
-					res.send(err)
-				res.json(products);
-			});
-		});
-	});
-
-	//==================================================================
-	// routes
-	app.get('/', function(req, res) {
-		res.render('index', {
-			title : 'Express'
-		});
-	});
-
-	//==================================================================
-	// route to test if the user is logged in or not
-	app.get('/loggedin', function(req, res) {
-		res.send(req.isAuthenticated() ? req.user : '0');
-	});
-
-	// route to log in
-	app.post('/login', passport.authenticate('local-login'), function(req, res) {
-		res.send(req.user);
-	});
-
-	app.post('/signup', passport.authenticate('local-signup'), function(req, res) {
-		res.send(req.user);
-	});
-
-	// route to log out
-	app.post('/logout', function(req, res) {
-		req.logOut();
-		res.send(200);
-	});
-	//==================================================================
 };
 
-// Define a middleware function to be used for every secured routes
-var auth = function(req, res, next) {
-	if (!req.isAuthenticated())
-		res.send(401);
-	else
-		next();
+function ensureAuthorized(req, res, next) {
+    var role;
+    if(!req.user) role = userRoles.public;
+    else          role = req.user.role;
+    //if(req.user)
+    	//console.log('route : '+JSON.stringify(req.path)+'req.user.role ' +JSON.stringify(req.user.role));
+    var accessLevel = _.findWhere(routes, { path: req.route.path, httpMethod: req.route.stack[0].method.toUpperCase() }).accessLevel || accessLevels.public;
+	//console.log('route : '+JSON.stringify(req.path)+' accessLevel.bitMask: ' +JSON.stringify(accessLevel.bitMask));
+	//console.log('route : '+JSON.stringify(req.path)+' role.bitMask: ' +JSON.stringify(role.bitMask));
+	
+    if(!(accessLevel.bitMask & role.bitMask)) return res.send(403);
+    return next();
 };

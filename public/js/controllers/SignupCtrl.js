@@ -3,12 +3,14 @@ angular.module('SignupCtrl', []).controller('SignupController', function($scope,
 	// This object will be filled by the form
 	$scope.user = {};
 	$scope.alerts = [];
+	$scope.userRoles = routingConfig.userRoles;
 
 	// Register the login() function
 	$scope.signup = function() {
 		$http.post('/signup', {
 			email : $scope.user.username,
 			password : $scope.user.password,
+			role: $scope.user.role
 		}).success(function(user) {
 			// No error: authentication OK
 			// $rootScope.message = 'Authentication successful!';
