@@ -14,7 +14,7 @@ var session      = require('express-session');
 // configuration ===========================================
     
 // config files
-var db = require('./config/db');
+var db = require('./server/config/db');
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -23,7 +23,7 @@ var port = process.env.PORT || 8080;
 // (uncomment after you enter in your own credentials in config/db.js)
 mongoose.connect(db.url); 
 
-require('./config/passport')(passport); // pass passport for configuration
+require('./server/config/passport')(passport); // pass passport for configuration
 
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -40,8 +40,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
-// set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public')); 
+// set the static files location /client/img will be /img for users
+app.use(express.static(__dirname + '/client')); 
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
@@ -52,7 +52,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ==================================================
-require('./app/routes')(app, passport); // configure our routes
+require('./server/routes')(app, passport); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080

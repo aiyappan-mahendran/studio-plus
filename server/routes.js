@@ -2,8 +2,8 @@ var _ =           require('underscore')
     , path =      require('path')
     , AuthCtrl =  require('./controllers/auth')
     , ProductCtrl =  require('./controllers/productServerCtrl')
-    , userRoles = require('../public/js/routingConfig').userRoles
-    , accessLevels = require('../public/js/routingConfig').accessLevels;
+    , userRoles = require('../client/js/routingConfig').userRoles
+    , accessLevels = require('../client/js/routingConfig').accessLevels;
 
 var routes = [
 
@@ -37,16 +37,6 @@ var routes = [
         middleware: [ProductCtrl.deleteProduct],
         accessLevel: accessLevels.admin
     },
-
-    // Local Auth
-    //TBD
-    /*
-    {
-            path: '/loggedin',
-            httpMethod: 'GET',
-            middleware: [AuthCtrl.loggedin]
-        },*/
-    
     {
         path: '/login',
         httpMethod: 'POST',
@@ -71,8 +61,12 @@ var routes = [
             var role = userRoles.public, username = '';
             if(req.user) {
                 role = req.user.role;
-                username = req.user.username;
+                username = req.user.email;
             }
+            console.log('res.cookie'+JSON.stringify({
+                'username': username,
+                'role': role
+            }));
             res.cookie('user', JSON.stringify({
                 'username': username,
                 'role': role
