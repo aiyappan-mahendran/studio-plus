@@ -18,6 +18,10 @@ function($stateProvider, $urlRouterProvider) {
 		url: '/products',
 		templateUrl : 'views/product.html',
 		controller : 'ProductController'
+	}).state('customers', {
+		url: '/customer',
+		templateUrl : 'views/customer.html',
+		controller : 'CustomerController'		
 	}).state('signup', {
 		url: '/signup',
 		templateUrl : 'views/signup.html',

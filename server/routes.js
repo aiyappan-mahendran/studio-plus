@@ -2,6 +2,7 @@ var _ =           require('underscore')
     , path =      require('path')
     , AuthCtrl =  require('./controllers/auth')
     , ProductCtrl =  require('./controllers/productServerCtrl')
+	, CustomerCtrl =  require('./controllers/customerServerCtrl')
     , userRoles = require('../client/js/routingConfig').userRoles
     , accessLevels = require('../client/js/routingConfig').accessLevels;
 
@@ -37,6 +38,26 @@ var routes = [
         middleware: [ProductCtrl.deleteProduct],
         accessLevel: accessLevels.admin
     },
+    {
+        path: '/api/customers',
+        httpMethod: 'GET',
+        middleware: [CustomerCtrl.getAllCustomers],
+        accessLevel: accessLevels.admin
+    },
+
+    {
+        path: '/api/customers',
+        httpMethod: 'POST',
+        middleware: [CustomerCtrl.createCustomer],
+        accessLevel: accessLevels.admin
+    },
+    
+    {
+        path: '/api/customers/:customer_id',
+        httpMethod: 'DELETE',
+        middleware: [CustomerCtrl.deleteCustomer],
+        accessLevel: accessLevels.admin
+    },	
     {
         path: '/login',
         httpMethod: 'POST',
