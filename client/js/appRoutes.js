@@ -30,13 +30,4 @@ function($stateProvider, $urlRouterProvider) {
 	//commented because ui-viewer is not working with the following line
 	// $locationProvider.html5Mode(true);
 
-})
-.run(function($rootScope, $http) {
-	// $rootScope.message = '';
-
-	// Logout function is available in any pages
-	$rootScope.logout = function() {
-		// $rootScope.message = 'Logged out.';
-		$http.post('/logout');
-	};
 });

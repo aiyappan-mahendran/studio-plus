@@ -42,21 +42,21 @@ var routes = [
         path: '/api/customers',
         httpMethod: 'GET',
         middleware: [CustomerCtrl.getAllCustomers],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },
 
     {
         path: '/api/customers',
         httpMethod: 'POST',
         middleware: [CustomerCtrl.createCustomer],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },
     
     {
         path: '/api/customers/:customer_id',
         httpMethod: 'DELETE',
         middleware: [CustomerCtrl.deleteCustomer],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },	
     {
         path: '/login',
