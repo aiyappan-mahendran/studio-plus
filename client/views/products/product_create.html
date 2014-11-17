@@ -1,34 +1,44 @@
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-		<form role="form">
-			<div class="row">
-				<div class="form-group col-lg-4">
-					<label for="code">Product name</label>
-					<input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
+<h2>Add new products</h2>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<form role="form">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Product name</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-lg-1">
-					<label for="code">Code</label>
-					<input type="text" class="form-control" placeholder="Enter product code" ng-model="formData.code">
+				<div class="row">
+					<div class="form-group ">
+						<div class="col-md-4">
+							<label for="code">Code</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter product code" ng-model="formData.code">
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-lg-1">
-					<label for="code">Product quantity</label>
-					<input type="number" class="form-control" placeholder="Enter product quantity" ng-model="formData.minQuantity">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Product quantity</label>
+						</div>
+						<input type="number" class="form-control" placeholder="Enter product quantity" ng-model="formData.minQuantity">
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-lg-1">
-					<label for="code">Price</label>
-					<input type="number" class="form-control" placeholder="Enter product price" ng-model="formData.price">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Price</label>
+						</div>
+						<input type="number" class="form-control" placeholder="Enter product price" ng-model="formData.price">
+					</div>
 				</div>
-			</div>
-
-			<button type="submit" class="btn btn-primary" ng-click="createProduct()">
-				Add
-			</button>
-		</form>
+				<button type="submit" class="btn btn-primary" ng-click="createProduct()">Add</button>
+				<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+			</form>
+		</div>
 	</div>
 </div>
