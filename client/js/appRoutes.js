@@ -43,15 +43,28 @@ function($stateProvider, $urlRouterProvider) {
 	            access: access.admin
 	        }
             
-        })
+    })
 	.state('customers', {
 		url: '/customer',
-		templateUrl : 'views/customer.html',
-		controller : 'CustomerController',
+            views: {
+                '': { templateUrl: 'views/customers/customer_layout.html' },
+                'customerlist@customers': { 
+                	templateUrl: 'views/customers/customer_list.html',
+                	controller: 'CustomerController' 
+                },
+                'customercreate@customers': { 
+                    templateUrl: 'views/customers/customer_create.html',
+                    controller: 'CustomerController'
+                },
+                'customertmenu@customers': {
+                    templateUrl: 'views/customers/customer_menu.html'
+                }
+            },
 		data: {
             access: access.user
         }		
-	}).state('signup', {
+	})
+	.state('signup', {
 		url: '/signup',
 		templateUrl : 'views/signup.html',
 		controller : 'SignupController',

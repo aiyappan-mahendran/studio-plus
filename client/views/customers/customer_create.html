@@ -1,0 +1,44 @@
+<h2>Add new customer</h2>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<form role="form">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Customer name</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Customer name" ng-model="formData.name">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group ">
+						<div class="col-md-4">
+							<label for="code">Code</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Customer code" ng-model="formData.code">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Customer mobile no</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Customer MobileNo" ng-model="formData.mobileNo">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Address</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Customer Address" ng-model="formData.address">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" ng-click="createCustomer()">Add</button>
+				<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

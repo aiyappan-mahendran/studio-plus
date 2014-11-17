@@ -2,7 +2,9 @@ var app = angular.module('CustomerCtrl', []);
 
 app.controller('CustomerController', function($scope, $http){
 	$scope.test='hello world';
-	
+	$scope.$on('CREATE_CUSTOMER', function(response, data) {
+      $scope.products = data;
+	})
 	// when landing on the page, get all products and show them
 	$http.get('/api/customers')
 		.success(function(data) {
@@ -18,6 +20,7 @@ app.controller('CustomerController', function($scope, $http){
 			.success(function(data) {
 				$scope.formData = {}; // clear the form so our user is ready to enter another
 				$scope.customers = data;
+				$scope.$parent.$broadcast('CREATE_CUSTOMER', data);
 				console.log(data);
 			})
 			.error(function(data) {
