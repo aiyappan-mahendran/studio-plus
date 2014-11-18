@@ -17,6 +17,15 @@ var routes = [
             res.render(requestedView);
         }]
     },
+
+    {
+        path: '/config/*',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            var requestedView = path.join('./', req.url);
+            res.render(requestedView);
+        }]
+    },
     
     {
         path: '/api/products',

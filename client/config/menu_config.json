@@ -1,0 +1,21 @@
+[{
+    "title": "Products",
+    "accessLevel": "accessLevels.admin",
+    "uisref": "products"
+}, {
+    "title": "Customers",
+    "accessLevel": "accessLevels.user",
+    "uisref": "customers"
+}, {
+    "title": "Job Card",
+    "accessLevel": "accessLevels.admin",
+    "uisref": "jobcard"
+}, {
+    "title": "Accounts",
+    "accessLevel": "accessLevels.admin",
+    "uisref": "accounts"
+}, {
+    "title": "Reports",
+    "accessLevel": "accessLevels.admin",
+    "uisref": "reports"
+}]

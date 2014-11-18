@@ -38,21 +38,10 @@
         <div class="navbar-header" access-level="accessLevels.user">
             <a class="navbar-brand" ui-sref="home">Studio Plus</a>
         </div>
-        <ul class="nav navbar-nav" access-level="accessLevels.admin">
-            <li><a ui-sref="products">Products</a></li>
-        </ul>
-		<ul class="nav navbar-nav" access-level="accessLevels.admin">
-            <li><a ui-sref="customers">Customers</a></li>
-        </ul>		
-        <ul class="nav navbar-nav" access-level="accessLevels.admin">
-            <li><a ui-sref="jobcard">Job Card</a></li>
-        </ul>
-        <ul class="nav navbar-nav" access-level="accessLevels.admin">
-            <li><a ui-sref="accounts">Accounts</a></li>
-        </ul>
-		<ul class="nav navbar-nav" access-level="accessLevels.admin">
-            <li><a ui-sref="reports">Reports</a></li>
-        </ul>		
+        <!-- Dynamic menus -->
+        <ul ng-repeat="menu in menus" class="nav navbar-nav" access-level="{{menu.accessLevel}}">
+            <li><a ui-sref="{{menu.uisref}}">{{menu.title}}</a></li>
+        </ul>        
 	
         <div>
 			<ul class="nav pull-right">
