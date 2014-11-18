@@ -1,20 +1,22 @@
 <h1>Customers List</h1>
-<div class="container">
-	<div class="data-table">
-		<table class="table table-condensed table-hover">
-			<tr>
-				<th>Name</th>
-				<th>Code</th>
-				<th>MobileNo</th>
-				<th>Address</th>
-				<th></th>
-			</tr>
-			<tr ng-repeat="customer in customers">
-				<td>{{ customer.name }}</td>
-				<td>{{ customer.code }}</td>
-				<td>{{ customer.mobileNo }}</td>
-				<td>{{ customer.address}}</td>
-			</tr>
-		</table>
+<div class="row">
+	<div class="col-md-6">
+		<div class="data-table">
+			<table class="table table-condensed table-hover">
+				<tr>
+					<th>Name</th>
+					<th>Code</th>
+					<th>MobileNo</th>
+					<th>Address</th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="customer in customers">
+					<td>{{ customer.name }}</td>
+					<td>{{ customer.code }}</td>
+					<td>{{ customer.mobileNo }}</td>
+					<td>{{ customer.address}}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

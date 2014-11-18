@@ -3,9 +3,9 @@ var app = angular.module('CustomerCtrl', []);
 app.controller('CustomerController', function($scope, $http){
 	$scope.test='hello world';
 	$scope.$on('CREATE_CUSTOMER', function(response, data) {
-      $scope.products = data;
+      $scope.customers = data;
 	})
-	// when landing on the page, get all products and show them
+	// when landing on the page, get all customers and show them
 	$http.get('/api/customers')
 		.success(function(data) {
 			$scope.customers = data;
