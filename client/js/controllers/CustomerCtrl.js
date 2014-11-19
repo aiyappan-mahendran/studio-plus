@@ -1,10 +1,23 @@
 var app = angular.module('CustomerCtrl', []);
 
-app.controller('CustomerController', function($scope, $http){
+app.controller('CustomerController', function($scope, $http, MenuConfig){
 	$scope.test='hello world';
 	$scope.$on('CREATE_CUSTOMER', function(response, data) {
       $scope.customers = data;
 	})
+
+	//FIXME: Pass param as product to retrive only those menu items
+	MenuConfig.getAll(function(response){
+		for (var i = 0; i < response.length; i++) {
+			if (response[i].id==='Customer'){
+				$scope.customerMenus = response[i].items;
+				break;
+			}
+		};
+		
+	});
+
+
 	// when landing on the page, get all customers and show them
 	$http.get('/api/customers')
 		.success(function(data) {

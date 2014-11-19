@@ -1,20 +1,51 @@
 [{
+    "id": "Product",
     "title": "Products",
     "accessLevel": "accessLevels.admin",
-    "uisref": "products"
+    "uisref": "products",
+    "items": [{
+        "title": "View Products",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Create Product",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Update Products",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Delete Products",
+        "accessLevel": "accessLevels.admin"
+    }]
 }, {
+    "id": "Customer",
     "title": "Customers",
     "accessLevel": "accessLevels.user",
-    "uisref": "customers"
+    "uisref": "customers",
+    "items": [{
+        "title": "View Customers",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Create Customer",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Update Customers",
+        "accessLevel": "accessLevels.admin"
+    }, {
+        "title": "Delete Customers",
+        "accessLevel": "accessLevels.admin"
+    }]
 }, {
+    "id": "Jobcard",
     "title": "Job Card",
     "accessLevel": "accessLevels.admin",
     "uisref": "jobcard"
 }, {
+    "id": "Account",
     "title": "Accounts",
     "accessLevel": "accessLevels.admin",
     "uisref": "accounts"
 }, {
+    "id": "Report",
     "title": "Reports",
     "accessLevel": "accessLevels.admin",
     "uisref": "reports"

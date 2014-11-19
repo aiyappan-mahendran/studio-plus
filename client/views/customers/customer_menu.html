@@ -1,10 +1,7 @@
 	<div class="row">
 		<div class="col-md-12 ">
-			<div data-ng-controller="NavCtrl">
-				<a active-nav="active-nav" class="list-group-item">View Customer</a>
-				<a active-nav="active-nav" class="list-group-item">Create Customer</a>
-				<a active-nav="active-nav" data-access-level="accessLevels.admin" class="list-group-item">Update Customer</a>
-				<a active-nav="active-nav" data-access-level="accessLevels.admin" class="list-group-item">Delete Customer</a>
+			<div data-ng-controller="CustomerController">
+			<a ng-repeat="menu in customerMenus" active-nav="active-nav" class="list-group-item" access-level="{{menu.accessLevel}}">{{menu.title}}</a>
 			</div>
 		</div>
 	</div>

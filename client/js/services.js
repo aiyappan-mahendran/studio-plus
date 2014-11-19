@@ -63,9 +63,7 @@ angular.module('services', ['ngCookies'])
 .factory('MenuConfig', function($http) {
     return {
         getAll: function(success) {
-            console.log('in getAll menu ');
             $http.get('config/menu_config.json').success(function(response) {
-                console.log('in menu-config : '+response);
                 success(response);
             }); 
         }

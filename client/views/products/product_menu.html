@@ -1,13 +1,7 @@
 	<div class="row">
 		<div class="col-md-12 ">
-			<div data-ng-controller="NavCtrl">
-				<!-- <div class="list-group-item">
-					<strong>Nested menu</strong>
-				</div> -->
-				<a  active-nav="active-nav" class="list-group-item">View Products</a>
-				<a  active-nav="active-nav" class="list-group-item">Create Product</a>
-				<a active-nav="active-nav" data-access-level="accessLevels.admin" class="list-group-item">Update Products</a>
-				<a active-nav="active-nav" data-access-level="accessLevels.admin" class="list-group-item">Delete Products</a>
+			<div data-ng-controller="ProductController">
+				<a ng-repeat="menu in productMenus" active-nav="active-nav" class="list-group-item" access-level="{{menu.accessLevel}}">{{menu.title}}</a>
 			</div>
 		</div>
 		<!--<div data-ui-view="data-ui-view" class="col-md-6 col-md-pull-4"></div>-->
