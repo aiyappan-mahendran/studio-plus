@@ -5,19 +5,19 @@
 		<div class="col-md-5">
 			<form role="form">
 				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Product name</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
-					</div>
-				</div>
-				<div class="row">
 					<div class="form-group ">
 						<div class="col-md-4">
 							<label for="code">Code</label>
 						</div>
 						<input type="text" class="form-control" placeholder="Enter product code" ng-model="formData.code">
+					</div>
+				</div>			
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Product name</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
 					</div>
 				</div>
 				<div class="row">
@@ -36,8 +36,22 @@
 						<input type="number" class="form-control" placeholder="Enter product price" ng-model="formData.price">
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary" ng-click="createProduct()">Add</button>
-				<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-4">
+							<label for="code">Active state</label>
+						</div>
+						<input type="text" class="form-control" placeholder="Current active state" ng-model="formData.activeState">
+					</div>
+				</div>		
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-7">					
+							<button type="submit" class="btn btn-primary" ng-click="createProduct()">Send For Approval</button>
+							<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+						</div>	
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

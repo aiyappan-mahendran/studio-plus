@@ -4,17 +4,27 @@
 		<div class="data-table">
 			<table class="table table-condensed table-hover">
 				<tr>
-					<th>Name</th>
 					<th>Code</th>
+					<th>Name</th>
 					<th>MobileNo</th>
+					<th>Phone no</th>
 					<th>Address</th>
+					<th>Location</th>
+					<th>State</th>
+					<th>Email-ID</th>
+					<th>Active state</th>
 					<th></th>
 				</tr>
 				<tr ng-repeat="customer in customers">
-					<td>{{ customer.name }}</td>
 					<td>{{ customer.code }}</td>
+					<td>{{ customer.name }}</td>
 					<td>{{ customer.mobileNo }}</td>
+					<td>{{ customer.phoneNo}}</td>
 					<td>{{ customer.address}}</td>
+					<td>{{ customer.location}}</td>
+					<td>{{ customer.state}}</td>
+					<td>{{ customer.emailId}}</td>
+					<td>{{ customer.activeState}}</td>
 				</tr>
 			</table>
 		</div>

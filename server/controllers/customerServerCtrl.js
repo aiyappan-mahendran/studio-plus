@@ -11,11 +11,16 @@ module.exports = {
 
 	createCustomer : function(req, res, next) {
 		Customer.create({
-			name : req.body.name,
-			code : req.body.code,
-			mobileNo : req.body.mobileNo,
-			address : req.body.address,
-			done : false
+			code 		: req.body.code,
+			name 		: req.body.name,
+			mobileNo 	: req.body.mobileNo,
+			phoneNo 	: req.body.phoneNo,
+			address 	: req.body.address,
+			location 	: req.body.location,
+			state 		: req.body.state,
+			emailId 	: req.body.emailId,
+			activeState : req.body.activeState,
+			done 		: false
 		}, function(err, todo) {
 			if (err) {
 				return next(err);

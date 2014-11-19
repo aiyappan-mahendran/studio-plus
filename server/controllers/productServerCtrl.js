@@ -15,6 +15,7 @@ module.exports = {
 			code : req.body.code,
 			minQuantity : req.body.minQuantity,
 			price : req.body.price,
+			activeState: req.body.activeState,
 			done : false
 		}, function(err, todo) {
 			if (err) {

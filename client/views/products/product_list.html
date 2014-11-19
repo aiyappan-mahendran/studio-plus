@@ -8,6 +8,7 @@
                     <th>Code</th>
                     <th>Quantity</th>
                     <th>Price</th>
+					<th>Active state</th>
                     <th></th>
                 </tr>
                 <tr ng-repeat="product in products">
@@ -15,6 +16,7 @@
                     <td>{{ product.code }}</td>
                     <td>{{ product.minQuantity }}</td>
                     <td>{{ product.price}}</td>
+					<td>{{ product.activeState}}</td>
                     <!--<td><a href="" ng-click="deleteProduct(product._id)"><img src='../../images/delete.png' /></a></td>-->
                 </tr>
             </table>
