@@ -1,91 +1,120 @@
 <h2>Add new customer</h2>
 <br>
 <div class="container">
-	<div class="row">
-		<div class="col-md-5">
-			<form role="form">
-				<div class="row">
-					<div class="form-group ">
-						<div class="col-md-4">
-							<label for="code">Code</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer code" ng-model="formData.code">
-					</div>
-				</div>			
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Name</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer name" ng-model="formData.name">
-					</div>
-				</div>
+    <div class="row">
+        <div class="col-md-6">
+            <form role="form">
+                <div class="row">
+                    <div class="form-group ">
+                        <div class="col-md-4">
+                            <label for="code">Code</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer code" ng-model="formData.code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Name</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer name" ng-model="formData.name">
+                    </div>
+                </div>
 
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Mobile no</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer MobileNo" ng-model="formData.mobileNo">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Phone no</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer PhoneNo" ng-model="formData.phoneNo">
-					</div>
-				</div>				
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Address</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer Address" ng-model="formData.address">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Location</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer Location" ng-model="formData.location">
-					</div>
-				</div>	
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">State</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer state" ng-model="formData.state">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Email-ID</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter Customer EmailId" ng-model="formData.emailId">
-					</div>
-				</div>		
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Active state</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Current active state" ng-model="formData.activeState">
-					</div>
-				</div>					
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-7">					
-							<button type="submit" class="btn btn-primary" ng-click="createCustomer()">Send For Approval</button>
-							<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
-						</div>	
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Mobile no</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer MobileNo" ng-model="formData.mobileNo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Phone no</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer PhoneNo" ng-model="formData.phoneNo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Address</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer Address" ng-model="formData.address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Location</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer Location" ng-model="formData.location">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">State</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer state" ng-model="formData.state">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Email-ID</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Customer EmailId" ng-model="formData.emailId">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Active state</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Current active state" ng-model="formData.activeState">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-7">
+                            <button type="submit" class="btn btn-primary" ng-click="createCustomer()">Send For Approval</button>
+                            <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="data-table">
+                <table class="table table-condensed table-hover">
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>MobileNo</th>
+                        <th>Phone no</th>
+                        <th>Address</th>
+                        <th>Location</th>
+                        <th>State</th>
+                        <th>Email-ID</th>
+                        <th>Active state</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="customer in customers">
+                        <td>{{ customer.code }}</td>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.mobileNo }}</td>
+                        <td>{{ customer.phoneNo}}</td>
+                        <td>{{ customer.address}}</td>
+                        <td>{{ customer.location}}</td>
+                        <td>{{ customer.state}}</td>
+                        <td>{{ customer.emailId}}</td>
+                        <td>{{ customer.activeState}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

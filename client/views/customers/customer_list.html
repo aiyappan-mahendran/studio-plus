@@ -1,32 +1,30 @@
 <h1>Customers List</h1>
 <div class="row">
-	<div class="col-md-6">
-		<div class="data-table">
-			<table class="table table-condensed table-hover">
-				<tr>
-					<th>Code</th>
-					<th>Name</th>
-					<th>MobileNo</th>
-					<th>Phone no</th>
-					<th>Address</th>
-					<th>Location</th>
-					<th>State</th>
-					<th>Email-ID</th>
-					<th>Active state</th>
-					<th></th>
-				</tr>
-				<tr ng-repeat="customer in customers">
-					<td>{{ customer.code }}</td>
-					<td>{{ customer.name }}</td>
-					<td>{{ customer.mobileNo }}</td>
-					<td>{{ customer.phoneNo}}</td>
-					<td>{{ customer.address}}</td>
-					<td>{{ customer.location}}</td>
-					<td>{{ customer.state}}</td>
-					<td>{{ customer.emailId}}</td>
-					<td>{{ customer.activeState}}</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+    <div class="col-md-12">
+        <div class="data-table">
+            <table tr-ng-grid="" items="customers">
+                <thead>
+                    <tr>
+                        <th field-name="name" display-name="Name">
+                        </th>
+                        <th field-name="code" display-name="Code">
+                        </th>
+                        <th field-name="emailId" display-name="Email">
+                        <th field-name="address" display-name="Address">
+                        </th>
+                        <th field-name="activeState" display-name="Active">
+                        </th>
+                        <th field-name="location" display-name="Location">
+                        </th>
+                        <th field-name="mobileNo" display-name="Mobile">
+                        </th>
+                        <th field-name="phoneNo" display-name="Phone">
+                        </th>
+                        <th field-name="state" display-name="State">
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>

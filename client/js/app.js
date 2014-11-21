@@ -1,1 +1,1 @@
-angular.module('sampleApp', ['ui.router', 'appRoutes', 'ui.bootstrap', 'directives', 'services', 'LoginCtrl', 'MainCtrl', 'ProductCtrl', 'CustomerCtrl', 'SignupCtrl', 'NavCtrl']);
+angular.module('sampleApp', ['ui.router', 'appRoutes', 'ui.bootstrap', 'trNgGrid', 'directives', 'services', 'LoginCtrl', 'MainCtrl', 'ProductCtrl', 'CustomerCtrl', 'SignupCtrl', 'NavCtrl']);

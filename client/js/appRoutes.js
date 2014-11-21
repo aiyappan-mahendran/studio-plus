@@ -23,47 +23,56 @@ function($stateProvider, $urlRouterProvider) {
             access: access.user
         }
 	})
-	.state('products', {
-            url: '/products',
-            views: {
-                '': { templateUrl: 'views/products/product_layout.html' },
-                'productlist@products': { 
-                	templateUrl: 'views/products/product_list.html',
-                	controller: 'ProductController' 
-                },
-                'productcreate@products': { 
-                    templateUrl: 'views/products/product_create.html',
-                    controller: 'ProductController'
-                },
-                'productmenu@products': {
-                    templateUrl: 'views/products/product_menu.html'
-                }
-            },
-            data: {
-	            access: access.admin
-	        }
-            
+    .state('products', {
+        url: '/products',
+        templateUrl: 'views/products/product_master.html',
+        abstract:true,
+        controller: 'ProductController', 
+        data: {
+            access: access.admin
+        }
     })
-	.state('customers', {
-		url: '/customer',
-            views: {
-                '': { templateUrl: 'views/customers/customer_layout.html' },
-                'customerlist@customers': { 
-                	templateUrl: 'views/customers/customer_list.html',
-                	controller: 'CustomerController' 
-                },
-                'customercreate@customers': { 
-                    templateUrl: 'views/customers/customer_create.html',
-                    controller: 'CustomerController'
-                },
-                'customertmenu@customers': {
-                    templateUrl: 'views/customers/customer_menu.html'
-                }
-            },
-		data: {
-            access: access.user
-        }		
-	})
+    .state('products.list', {
+        url: '',
+        templateUrl: 'views/products/product_list.html',
+        controller: 'ProductController', 
+        data: {
+            access: access.admin
+        }
+    })
+    .state('products.create', {
+        url: '',
+        templateUrl: 'views/products/product_create.html',
+        controller: 'ProductController', 
+        data: {
+            access: access.admin
+        }
+    })
+    .state('customers', {
+        url: '/customers',
+        templateUrl: 'views/customers/customer_master.html',
+        abstract:true,
+        controller: 'CustomerController', 
+        data: {
+            access: access.admin
+        }
+    })
+    .state('customers.list', {
+        url: '',
+        templateUrl: 'views/customers/customer_list.html',
+        controller: 'CustomerController', 
+        data: {
+            access: access.admin
+        }
+    })
+    .state('customers.create', {
+        url: '',
+        templateUrl: 'views/customers/customer_create.html',
+        controller: 'CustomerController', 
+        data: {
+            access: access.admin
+        }
+    })
 	.state('signup', {
 		url: '/signup',
 		templateUrl : 'views/signup.html',

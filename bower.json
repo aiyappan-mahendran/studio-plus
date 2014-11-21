@@ -1,15 +1,16 @@
 {
-    "name": "starter-node-angular",
-    "version": "1.0.0",
-    "dependencies": {
-        "bootstrap": "latest",
-        "font-awesome": "latest",
-        "animate.css": "latest",
-        "angular": "latest",
-        "jquery": "latest",
-        "angular-resource": "latest",
-        "angular-bootstrap": "latest",
-        "angular-ui-router": "latest",
-        "angular-cookies": "latest"   
-    }
+  "name": "starter-node-angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "jquery": "latest",
+    "angular-resource": "latest",
+    "angular-bootstrap": "latest",
+    "angular-ui-router": "latest",
+    "angular-cookies": "latest",
+    "trNgGrid": "~3.0.3"
+  }
 }

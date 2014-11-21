@@ -1,58 +1,76 @@
 <h2>Add new products</h2>
 <br>
 <div class="container">
-	<div class="row">
-		<div class="col-md-5">
-			<form role="form">
-				<div class="row">
-					<div class="form-group ">
-						<div class="col-md-4">
-							<label for="code">Code</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter product code" ng-model="formData.code">
-					</div>
-				</div>			
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Product name</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Product quantity</label>
-						</div>
-						<input type="number" class="form-control" placeholder="Enter product quantity" ng-model="formData.minQuantity">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Price</label>
-						</div>
-						<input type="number" class="form-control" placeholder="Enter product price" ng-model="formData.price">
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-4">
-							<label for="code">Active state</label>
-						</div>
-						<input type="text" class="form-control" placeholder="Current active state" ng-model="formData.activeState">
-					</div>
-				</div>		
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-7">					
-							<button type="submit" class="btn btn-primary" ng-click="createProduct()">Send For Approval</button>
-							<button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
-						</div>	
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-md-6">
+            <form role="form">
+                <div class="row">
+                    <div class="form-group ">
+                        <div class="col-md-4">
+                            <label for="code">Code</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter product code" ng-model="formData.code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Product name</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter product name" ng-model="formData.name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Product quantity</label>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Enter product quantity" ng-model="formData.minQuantity">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Price</label>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Enter product price" ng-model="formData.price">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="code">Active state</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Current active state" ng-model="formData.activeState">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-7">
+                            <button type="submit" class="btn btn-primary" ng-click="createProduct()">Send For Approval</button>
+                            <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="data-table">
+                <table class="table table-condensed table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr ng-repeat="product in products">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.minQuantity }}</td>
+                        <td>{{ product.price}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

@@ -2,51 +2,42 @@
     "id": "Product",
     "title": "Products",
     "accessLevel": "accessLevels.admin",
-    "uisref": "products",
+    "uisref": "products.list",
     "items": [{
-        "title": "View Products",
-        "accessLevel": "accessLevels.admin"
+        "title": "View",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "products.list",
+        "faClass": "fa fa-list-alt fa-fw"
     }, {
-        "title": "Create Product",
-        "accessLevel": "accessLevels.admin"
+        "title": "Create",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "products.create",
+        "faClass": "fa fa-file fa-fw"
     }, {
-        "title": "Update Products",
-        "accessLevel": "accessLevels.admin"
-    }, {
-        "title": "Delete Products",
-        "accessLevel": "accessLevels.admin"
+        "title": "Update",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "products.update",
+        "faClass": "fa fa-pencil-square-o fa-fw"
     }]
 }, {
     "id": "Customer",
     "title": "Customers",
     "accessLevel": "accessLevels.user",
-    "uisref": "customers",
+    "uisref": "customers.list",
     "items": [{
-        "title": "View Customers",
-        "accessLevel": "accessLevels.admin"
+        "title": "View",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "customers.list",
+        "faClass": "fa fa-list-alt fa-fw"
     }, {
-        "title": "Create Customer",
-        "accessLevel": "accessLevels.admin"
+        "title": "Create",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "customers.create",
+        "faClass": "fa fa-file fa-fw"
     }, {
-        "title": "Update Customers",
-        "accessLevel": "accessLevels.admin"
-    }, {
-        "title": "Delete Customers",
-        "accessLevel": "accessLevels.admin"
+        "title": "Update",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "customers.update",
+        "faClass": "fa fa-pencil-square-o fa-fw"
     }]
-}, {
-    "id": "Jobcard",
-    "title": "Job Card",
-    "accessLevel": "accessLevels.admin",
-    "uisref": "jobcard"
-}, {
-    "id": "Account",
-    "title": "Accounts",
-    "accessLevel": "accessLevels.admin",
-    "uisref": "accounts"
-}, {
-    "id": "Report",
-    "title": "Reports",
-    "accessLevel": "accessLevels.admin",
-    "uisref": "reports"
 }]
