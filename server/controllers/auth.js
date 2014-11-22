@@ -10,10 +10,6 @@ module.exports = {
 
             if(err)     { return next(err); }
             if(!user)   { return res.send(400); }
-			//console.log("user details : "+ JSON.stringify(user));
-			//console.log("user role details : "+ JSON.stringify(user.role));
-			//console.log("user role details : "+ JSON.stringify(user.role.bitMask));
-			//console.log("user role details : "+ JSON.stringify(user.role.title));
 
             req.logIn(user, function(err) {
                 if(err) {

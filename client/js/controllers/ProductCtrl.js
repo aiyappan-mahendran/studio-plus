@@ -50,7 +50,6 @@ app.controller('ProductController', function($scope, $http, MenuConfig){
 		$http.delete('/api/products/' + id)
 			.success(function(data) {
 				$scope.products = data;
-				console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);

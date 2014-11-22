@@ -9,7 +9,6 @@ angular.module('directives', [])
                             , accessLevel;
             $scope.user = Auth.user;
             $scope.$watch('user', function(user) {
-            	console.log('$watch(user) + '+JSON.stringify(user));
                 if(user.role)
                     userRole = user.role;
                 updateCSS();

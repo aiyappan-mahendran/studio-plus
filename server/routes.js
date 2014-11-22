@@ -93,10 +93,6 @@ var routes = [
                 role = req.user.role;
                 username = req.user.email;
             }
-            console.log('res.cookie'+JSON.stringify({
-                'username': username,
-                'role': role
-            }));
             res.cookie('user', JSON.stringify({
                 'username': username,
                 'role': role
@@ -139,11 +135,7 @@ function ensureAuthorized(req, res, next) {
     var role;
     if(!req.user) role = userRoles.public;
     else          role = req.user.role;
-    //if(req.user)
-    	//console.log('route : '+JSON.stringify(req.path)+'req.user.role ' +JSON.stringify(req.user.role));
     var accessLevel = _.findWhere(routes, { path: req.route.path, httpMethod: req.route.stack[0].method.toUpperCase() }).accessLevel || accessLevels.public;
-	//console.log('route : '+JSON.stringify(req.path)+' accessLevel.bitMask: ' +JSON.stringify(accessLevel.bitMask));
-	//console.log('route : '+JSON.stringify(req.path)+' role.bitMask: ' +JSON.stringify(role.bitMask));
 	
     if(!(accessLevel.bitMask & role.bitMask)) return res.send(403);
     return next();
