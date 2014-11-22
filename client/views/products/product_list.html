@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="data-table">
-            <table tr-ng-grid="" items="products">
+            <table tr-ng-grid="" items="products"  selected-items="mySelectedItems" page-items="10">
                 <thead>
                     <tr>
                         <th field-name="name" display-name="Name">
@@ -16,6 +16,17 @@
                         </th>
                     </tr>
                 </thead>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <span tr-ng-grid-global-filter=""></span>
+                                <span class="form-group pull-left">
+                                    <button class="btn btn-primary" ng-click="removeSelectedElements()" ng-class="{'disabled':!mySelectedItems.length}">Remove Selected Items</button>
+                                </span>
+                                <span tr-ng-grid-pager=""></span>
+                            </td>
+                        </tr>
+                    </tfoot>
             </table>
         </div>
     </div>

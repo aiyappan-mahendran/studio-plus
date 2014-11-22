@@ -1,10 +1,17 @@
 var app = angular.module('CustomerCtrl', []);
 
 app.controller('CustomerController', function($scope, $http, MenuConfig){
-	$scope.test='hello world';
+	$scope.mySelectedItems=[];
 	$scope.$on('CREATE_CUSTOMER', function(response, data) {
       $scope.customers = data;
-	})
+	});
+	$scope.removeSelectedElements = function() {
+		console.log(JSON.stringify($scope.mySelectedItems));
+		for (var i = 0; i < $scope.mySelectedItems.length; i++) {
+			$scope.deleteCustomer($scope.mySelectedItems[i]._id);
+	    };
+	    $scope.mySelectedItems=[];
+	};
 
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){
