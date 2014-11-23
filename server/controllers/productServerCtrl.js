@@ -61,7 +61,6 @@ module.exports = {
 
     },
 
-
     deleteProduct: function(req, res, next) {
         Product.remove({
             _id: req.params.product_id

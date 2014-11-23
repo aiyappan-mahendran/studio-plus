@@ -2,7 +2,8 @@ var app = angular.module('CustomerCtrl', []);
 
 app.controller('CustomerController', function($scope, $http, MenuConfig){
 	$scope.mySelectedItems=[];
-	$scope.$on('CREATE_CUSTOMER', function(response, data) {
+	$scope.selectedCustomer=[];
+	$scope.$on('CUSTOMER_CHANGED', function(response, data) {
       $scope.customers = data;
 	});
 	$scope.removeSelectedElements = function() {
@@ -11,6 +12,12 @@ app.controller('CustomerController', function($scope, $http, MenuConfig){
 	    };
 	    $scope.mySelectedItems=[];
 	};
+
+	$scope.$watch('selectedCustomer', function(newVal, oldVal){
+		if (newVal.length>0){
+			$scope.formData = newVal[0];
+		}
+	},true);
 
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){
@@ -38,7 +45,19 @@ app.controller('CustomerController', function($scope, $http, MenuConfig){
 			.success(function(data) {
 				$scope.formData = {}; // clear the form so our user is ready to enter another
 				$scope.customers = data;
-				$scope.$parent.$broadcast('CREATE_CUSTOMER', data);
+				$scope.$parent.$broadcast('CUSTOMER_CHANGED', data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	};
+
+	$scope.updateCustomer = function() {
+		$http.put('/api/customers', $scope.formData)
+			.success(function(data) {
+				$scope.formData = {}; // clear the form so our user is ready to enter another
+				$scope.customers = data;
+				$scope.$parent.$broadcast('CUSTOMER_CHANGED', data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);

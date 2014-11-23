@@ -81,6 +81,14 @@ function($stateProvider, $urlRouterProvider) {
             access: access.admin
         }
     })
+    .state('customers.update', {
+        url: '',
+        templateUrl: 'views/customers/customer_update.html',
+        controller: 'CustomerController', 
+        data: {
+            access: access.admin
+        }
+    })
 	.state('signup', {
 		url: '/signup',
 		templateUrl : 'views/signup.html',
