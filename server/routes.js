@@ -40,6 +40,13 @@ var routes = [
         middleware: [ProductCtrl.createProduct],
         accessLevel: accessLevels.admin
     },
+
+    {
+        path: '/api/products',
+        httpMethod: 'PUT',
+        middleware: [ProductCtrl.updateProduct],
+        accessLevel: accessLevels.admin
+    },
     
     {
         path: '/api/products/:product_id',
@@ -58,6 +65,13 @@ var routes = [
         path: '/api/customers',
         httpMethod: 'POST',
         middleware: [CustomerCtrl.createCustomer],
+        accessLevel: accessLevels.user
+    },
+
+    {
+        path: '/api/customers',
+        httpMethod: 'PUT',
+        middleware: [CustomerCtrl.updateCustomer],
         accessLevel: accessLevels.user
     },
     

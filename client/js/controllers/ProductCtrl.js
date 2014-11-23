@@ -2,16 +2,26 @@ var app = angular.module('ProductCtrl', []);
 
 app.controller('ProductController', function($scope, $http, MenuConfig){
 	$scope.mySelectedItems=[];
+	$scope.selectedProduct=[];
+	
 	$scope.$on('CREATE_PRODUCT', function(response, data) {
       $scope.products = data;
-	})
+	});
+	
 	$scope.removeSelectedElements = function() {
-		console.log(JSON.stringify($scope.mySelectedItems));
 		for (var i = 0; i < $scope.mySelectedItems.length; i++) {
 			$scope.deleteProduct($scope.mySelectedItems[i]._id);
 	    };
 	    $scope.mySelectedItems=[];
 	};
+	
+	$scope.$watch('selectedProduct', function(newVal, oldVal){
+		if (newVal.length>0){
+			$scope.formData = newVal[0];
+
+		}
+	},true);
+
 	
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){
@@ -35,6 +45,18 @@ app.controller('ProductController', function($scope, $http, MenuConfig){
 	
 	$scope.createProduct = function() {
 		$http.post('/api/products', $scope.formData)
+			.success(function(data) {
+				$scope.formData = {}; // clear the form so our user is ready to enter another
+				$scope.products = data;
+				$scope.$parent.$broadcast('CREATE_PRODUCT', data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	};
+
+	$scope.updateProduct = function() {
+		$http.put('/api/products', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {}; // clear the form so our user is ready to enter another
 				$scope.products = data;

@@ -48,6 +48,14 @@ function($stateProvider, $urlRouterProvider) {
             access: access.admin
         }
     })
+    .state('products.update', {
+        url: '',
+        templateUrl: 'views/products/product_update.html',
+        controller: 'ProductController', 
+        data: {
+            access: access.admin
+        }
+    })
     .state('customers', {
         url: '/customers',
         templateUrl: 'views/customers/customer_master.html',
