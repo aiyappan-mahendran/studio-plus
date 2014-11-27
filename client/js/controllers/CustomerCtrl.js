@@ -1,6 +1,6 @@
 var app = angular.module('CustomerCtrl', []);
 
-app.controller('CustomerController', function($scope, $http, MenuConfig){
+app.controller('CustomerController', function($scope, $http, MenuConfig, modalService){
 	$scope.mySelectedItems=[];
 	$scope.selectedCustomer=[];
 	$scope.$on('CUSTOMER_CHANGED', function(response, data) {
@@ -73,5 +73,18 @@ app.controller('CustomerController', function($scope, $http, MenuConfig){
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
+	};
+
+	$scope.searchCustomer = function(){
+
+		var modalOptions = {
+            headerText: 'Search Customer',
+            bodyText: 'Select a customer to update',
+            dataItems: $scope.customers
+        };
+
+        modalService.showModal({}, modalOptions).then(function (result) {
+            $scope.formData = angular.copy(result[0]);
+        });
 	};
 });
