@@ -1,80 +1,136 @@
 var app = angular.module('ProductCtrl', []);
 
-app.controller('ProductController', function($scope, $http, MenuConfig){
-	$scope.mySelectedItems=[];
-	$scope.selectedProduct=[];
+app.controller('ProductController', function($scope, $http, MenuConfig, modalService){
 	
-	$scope.$on('CREATE_PRODUCT', function(response, data) {
-      $scope.products = data;
-	});
-	
-	$scope.removeSelectedElements = function() {
-		for (var i = 0; i < $scope.mySelectedItems.length; i++) {
-			$scope.deleteProduct($scope.mySelectedItems[i]._id);
-	    };
-	    $scope.mySelectedItems=[];
+	$scope.formData = {
+	    name: '',
+	    code: '',
+	    minQuantity: '',
+	    price: '',
+	    activeState: ''
 	};
-	
-	$scope.$watch('selectedProduct', function(newVal, oldVal){
-		if (newVal.length>0){
-			$scope.formData = newVal[0];
 
-		}
-	},true);
+	$scope.fields = [{
+	    name: 'name',
+	    title: 'Product name',
+	    required: true,
+	    placeholder: 'Enter product name',
+	    type: {
+	        view: 'input'
+	    }
+	},{
+	    name: 'code',
+	    title: 'Code',
+	    required: true,
+	    placeholder: 'Enter product code',
+	    type: {
+	        view: 'input'
+	    }
+	},{
+	    name: 'minQuantity',
+	    title: 'Product quantity',
+	    required: true,
+	    placeholder: 'Enter product quantity',
+	    type: {
+	        view: 'input'
+	    }
+	},{
+	    name: 'price',
+	    title: 'Price',
+	    required: true,
+	    placeholder: 'Enter product price',
+	    type: {
+	        view: 'input'
+	    }
+	},{
+	    name: 'activeState',
+	    title: 'Active state',
+	    required: true,
+	    placeholder: 'Current active state',
+	    type: {
+	        view: 'input'
+	    }
+	}
+	];
 
-	
+	$scope.form = {
+	    insertForm: {
+	        heading: 'Add new products',
+	        submitLabel: 'Send For Approval',
+	        cancelLabel: 'Cancel'
+	    },
+	    updateForm: {
+	        heading: 'Update products',
+	        submitLabel: 'Send For Approval',
+	        cancelLabel: 'Cancel',
+			searchLabel: 'Search'	    	
+	    },
+	    listForm: {
+	    	heading: 'Products List'
+	    }
+	};
+
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){
 		for (var i = 0; i < response.length; i++) {
 			if (response[i].id==='Product'){
-				$scope.productMenus = response[i].items;
+				$scope.menus = response[i].items;
 				break;
 			}
 		};
 		
 	});
 
-	// when landing on the page, get all products and show them
 	$http.get('/api/products')
 		.success(function(data) {
-			$scope.products = data;
+			$scope.listItems = data;
 		})
 		.error(function(data) {
 			console.log('Error: ' + data);
 		});
 	
-	$scope.createProduct = function() {
+	$scope.create = function() {
 		$http.post('/api/products', $scope.formData)
 			.success(function(data) {
-				$scope.formData = {}; // clear the form so our user is ready to enter another
-				$scope.products = data;
-				$scope.$parent.$broadcast('CREATE_PRODUCT', data);
+				$scope.formData = {};
+				$scope.listItems = data;
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
 	};
 
-	$scope.updateProduct = function() {
+	$scope.update = function() {
 		$http.put('/api/products', $scope.formData)
 			.success(function(data) {
-				$scope.formData = {}; // clear the form so our user is ready to enter another
-				$scope.products = data;
-				$scope.$parent.$broadcast('CREATE_PRODUCT', data);
+				$scope.formData = {};
+				$scope.listItems = data;
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
 	};
 	
-	// delete a todo after checking it
 	$scope.deleteProduct = function(id) {
 		$http.delete('/api/products/' + id)
 			.success(function(data) {
-				$scope.products = data;
+				$scope.listItems = data;
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
 	};
+
+	$scope.search = function(){
+		var modalOptions = {
+            headerText: 'Search Product',
+            bodyText: 'Select a product to update',
+            dataItems: $scope.listItems
+        };
+
+        modalService.showModal({}, modalOptions).then(function (result) {
+            $scope.formData = angular.copy(result[0]);
+        });
+	};
+
 });

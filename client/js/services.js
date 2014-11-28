@@ -74,7 +74,7 @@ angular.module('services', ['ngCookies'])
             backdrop: true,
             keyboard: true,
             modalFade: true,
-            templateUrl: '/views/modal.html',
+            templateUrl: '/views/forms/search.html',
             size:'lg'
         };
 

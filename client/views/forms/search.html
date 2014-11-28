@@ -5,20 +5,6 @@
     <p>{{modalOptions.bodyText}}</p>
 
     <table tr-ng-grid="" items="modalOptions.dataItems" selected-items="modalOptions.selectedItem" page-items="5" selection-mode="SingleRow">
-        <!-- <thead>
-            <tr>
-                <th ng-repeat="item in modalOptions.headerItems" field-name="{{item.fieldName}}" display-name="{{item.displayName}}" enable-filtering="{{item.enableFiltering}}" enable-sorting="{{item.enableSorting}}">
-                </th> 
-            </tr>
-        </thead>-->
-        <tfoot>
-            <tr>
-                <td>
-                    <span tr-ng-grid-global-filter=""></span>
-                    <span tr-ng-grid-pager=""></span>
-                </td>
-            </tr>
-        </tfoot>
     </table>
 </div>
 <div class="modal-footer">

@@ -25,7 +25,7 @@ function($stateProvider, $urlRouterProvider) {
 	})
     .state('products', {
         url: '/products',
-        templateUrl: 'views/products/product_master.html',
+        templateUrl: 'views/forms/layout.html',
         abstract:true,
         controller: 'ProductController', 
         data: {
@@ -34,7 +34,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('products.list', {
         url: '',
-        templateUrl: 'views/products/product_list.html',
+        templateUrl: 'views/forms/list.html',
         controller: 'ProductController', 
         data: {
             access: access.admin
@@ -42,7 +42,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('products.create', {
         url: '',
-        templateUrl: 'views/products/product_create.html',
+        templateUrl: 'views/forms/create.html',
         controller: 'ProductController', 
         data: {
             access: access.admin
@@ -50,7 +50,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('products.update', {
         url: '',
-        templateUrl: 'views/products/product_update.html',
+        templateUrl: 'views/forms/update.html',
         controller: 'ProductController', 
         data: {
             access: access.admin
@@ -58,7 +58,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('customers', {
         url: '/customers',
-        templateUrl: 'views/customers/customer_master.html',
+        templateUrl: 'views/forms/layout.html',
         abstract:true,
         controller: 'CustomerController', 
         data: {
@@ -67,7 +67,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('customers.list', {
         url: '',
-        templateUrl: 'views/customers/customer_list.html',
+        templateUrl: 'views/forms/list.html',
         controller: 'CustomerController', 
         data: {
             access: access.admin
@@ -75,7 +75,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('customers.create', {
         url: '',
-        templateUrl: 'views/customers/customer_create.html',
+        templateUrl: 'views/forms/create.html',
         controller: 'CustomerController', 
         data: {
             access: access.admin
@@ -83,7 +83,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('customers.update', {
         url: '',
-        templateUrl: 'views/customers/customer_update.html',
+        templateUrl: 'views/forms/update.html',
         controller: 'CustomerController', 
         data: {
             access: access.admin
