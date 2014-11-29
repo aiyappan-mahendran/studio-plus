@@ -135,6 +135,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
+		toastr.success('Customer added successfully');
 	};
 
 	$scope.update = function() {
@@ -147,9 +148,10 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
+		toastr.success('Customer updated successfully');
 	};
 	
-	$scope.deleteCustomer = function(id) {
+	$scope.delete = function(id) {
 		$http.delete('/api/Customers/' + id)
 			.success(function(data) {
 				$scope.listItems = data;

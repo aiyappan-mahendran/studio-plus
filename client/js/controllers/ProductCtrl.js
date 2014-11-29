@@ -67,6 +67,12 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    },
 	    listForm: {
 	    	heading: 'Products List'
+	    },
+	    deleteForm: {
+	    	heading: 'Delete Product',
+	    	submitLabel: 'Delete',
+	        cancelLabel: 'Cancel',
+	        searchLabel: 'Search'
 	    }
 	};
 
@@ -98,6 +104,7 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
+		toastr.success('Product added successfully');
 	};
 
 	$scope.update = function() {
@@ -109,10 +116,11 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
+		toastr.success('Product updated successfully');
 	};
 	
-	$scope.deleteProduct = function(id) {
-		$http.delete('/api/products/' + id)
+	$scope.delete = function() {
+		$http.delete('/api/products/' + $scope.formData._id)
 			.success(function(data) {
 				$scope.listItems = data;
 			})
