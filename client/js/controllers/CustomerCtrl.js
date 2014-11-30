@@ -83,9 +83,12 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    name: 'activeState',
 	    title: 'Active state',
 	    required: false,
-	    placeholder: 'Current active state',
 	    type: {
-	        view: 'text'
+	        view: 'dropdown',
+			options: [  
+				{id: 0, name: 'Active'},  
+				{id: 1, name: 'InActive'}  
+			] 	        
 	    }
 	}];
 

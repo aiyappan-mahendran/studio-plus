@@ -43,12 +43,15 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	        view: 'number'
 	    }
 	},{
-	    name1: 'activeState',
+	    name: 'activeState',
 	    title: 'Active state',
 	    required: false,
-	    placeholder: 'Current active state',
 	    type: {
-	        view: 'text'
+	        view: 'dropdown',
+			options: [  
+				{id: 0, name: 'Active'},  
+				{id: 1, name: 'InActive'}  
+			] 	        
 	    }
 	}
 	];

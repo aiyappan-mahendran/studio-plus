@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('Customer', {
 	code : {type : String},
     name : {type : String, default: ''},
-    mobileNo : {type: String, default: ''},
-    phoneNo : {type: String, default: ''},
+    mobileNo : {type: Number},
+    phoneNo : {type: Number},
 	address : {type: String, default: ''},
 	location : {type: String, default: ''},
 	state : {type: String, default: ''},

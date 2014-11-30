@@ -6,7 +6,7 @@
             <form role="form" name="myForm">
                 <div class="row">
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary" ng-click="search()" >{{form.updateForm.searchLabel}}</button>
+                    <button type="button" class="btn btn-primary" ng-click="search()" >{{form.updateForm.searchLabel}}</button>
                     </div>
                 </div>            
                 <div ng-include="'views/forms/formFields.html'"></div>
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <div class="col-md-7">
                             <button type="submit" class="btn btn-primary" ng-click="update()" ng-disabled="myForm.$invalid">{{form.updateForm.submitLabel}}</button>
-                            <button type="submit" class="btn btn-primary" ng-click="cancel()">{{form.updateForm.cancelLabel}}</button>
+                            <button type="button" class="btn btn-primary" ng-click="cancel()">{{form.updateForm.cancelLabel}}</button>
                         </div>
                     </div>
                 </div>

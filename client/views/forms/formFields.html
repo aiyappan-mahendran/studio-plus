@@ -15,7 +15,11 @@
             <div ng-switch-when="email">
                 <input ng-if="field.required" type="email" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]" required>
                 <input ng-if="!field.required" type="email" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]">
-            </div>                                                        
+            </div>
+            <div ng-switch-when="dropdown">
+                <select name="formData[field.name]" ng-options="item.name as item.name for item in field.type.options" ng-model="formData[field.name]">
+                </select>
+            </div>
         </ng-switch>
     </div>
 </div>
