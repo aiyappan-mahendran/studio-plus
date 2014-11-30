@@ -5,10 +5,9 @@ angular.module('LoginCtrl', []).controller('LoginController', function($scope, $
 			username : $scope.user.username,
 			password : $scope.user.password
 		}, function(res) {
-			$rootScope.error = "";
 			$location.path('/home');
 		}, function(err) {
-			$rootScope.error = "The email or password you entered is incorrect.";
+			toastr.error("The email or password you entered is incorrect.");
 			$location.url('/');
 		});
 	};

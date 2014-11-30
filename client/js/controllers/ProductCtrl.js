@@ -16,7 +16,7 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    required: true,
 	    placeholder: 'Enter product name',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	},{
 	    name: 'code',
@@ -24,7 +24,7 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    required: true,
 	    placeholder: 'Enter product code',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	},{
 	    name: 'minQuantity',
@@ -32,7 +32,7 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    required: true,
 	    placeholder: 'Enter product quantity',
 	    type: {
-	        view: 'input'
+	        view: 'number'
 	    }
 	},{
 	    name: 'price',
@@ -40,15 +40,15 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    required: true,
 	    placeholder: 'Enter product price',
 	    type: {
-	        view: 'input'
+	        view: 'number'
 	    }
 	},{
-	    name: 'activeState',
+	    name1: 'activeState',
 	    title: 'Active state',
-	    required: true,
+	    required: false,
 	    placeholder: 'Current active state',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}
 	];
@@ -84,7 +84,6 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 				break;
 			}
 		};
-		
 	});
 
 	$http.get('/api/products')

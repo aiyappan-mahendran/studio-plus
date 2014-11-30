@@ -1,0 +1,21 @@
+<div class="row" ng-repeat="field in fields">
+    <div class="form-group">
+        <div class="col-md-4">
+            <label for="code">{{field.title}}</label>
+        </div>
+        <ng-switch on="field.type.view">
+            <div ng-switch-when="text">
+                <input ng-if="field.required" type="text" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]" required>
+                <input ng-if="!field.required" type="text" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]">
+            </div>
+            <div ng-switch-when="number">
+                <input ng-if="field.required" type="number" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]" required>
+                <input ng-if="!field.required" type="number" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]">
+            </div>
+            <div ng-switch-when="email">
+                <input ng-if="field.required" type="email" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]" required>
+                <input ng-if="!field.required" type="email" class="form-control" placeholder="{{field.placeholder}}" name="formData[field.name]" ng-model="formData[field.name]">
+            </div>                                                        
+        </ng-switch>
+    </div>
+</div>

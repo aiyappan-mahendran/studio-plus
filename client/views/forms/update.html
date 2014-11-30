@@ -3,24 +3,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <form role="form">
+            <form role="form" name="myForm">
                 <div class="row">
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary" ng-click="search()" >{{form.updateForm.searchLabel}}</button>
                     </div>
                 </div>            
-                <div class="row" ng-repeat="field in fields">
-                    <div class="form-group">
-                        <div class="col-md-4">
-                            <label for="code">{{field.title}}</label>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{field.placeholder}}" ng-model="formData[field.name]">
-                    </div>
-                </div>
+                <div ng-include="'views/forms/formFields.html'"></div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-7">
-                            <button type="submit" class="btn btn-primary" ng-click="update()">{{form.updateForm.submitLabel}}</button>
+                            <button type="submit" class="btn btn-primary" ng-click="update()" ng-disabled="myForm.$invalid">{{form.updateForm.submitLabel}}</button>
                             <button type="submit" class="btn btn-primary" ng-click="cancel()">{{form.updateForm.cancelLabel}}</button>
                         </div>
                     </div>

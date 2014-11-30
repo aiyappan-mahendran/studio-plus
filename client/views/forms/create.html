@@ -3,23 +3,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <form role="form">
-                <div class="row" ng-repeat="field in fields">
-                    <div class="form-group">
-                        <div class="col-md-4">
-                            <label for="code">{{field.title}}</label>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{field.placeholder}}" ng-model="formData[field.name]">
-                    </div>
-                </div>
+            <form role="form" name="myForm">
+            <div ng-include="'views/forms/formFields.html'"></div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-7">
-                            <button type="submit" class="btn btn-primary" ng-click="create()">{{form.insertForm.submitLabel}}</button>
+                            <button type="submit" class="btn btn-primary" ng-click="create()" ng-disabled="myForm.$invalid">{{form.insertForm.submitLabel}} </button>
                             <button type="submit" class="btn btn-primary" ng-click="cancel()">{{form.insertForm.cancelLabel}}</button>
                         </div>
                     </div>
-                </div>
+                </div> 
             </form>
         </div>
     </div>

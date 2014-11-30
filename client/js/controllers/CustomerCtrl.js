@@ -21,7 +21,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter customer name',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}, {
 	    name: 'code',
@@ -29,7 +29,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter customer code',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}, {
 	    name: 'mobileNo',
@@ -37,7 +37,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter MobileNo',
 	    type: {
-	        view: 'input'
+	        view: 'number'
 	    }
 	}, {
 	    name: 'phoneNo',
@@ -45,7 +45,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter Phone',
 	    type: {
-	        view: 'input'
+	        view: 'number'
 	    }
 	}, {
 	    name: 'address',
@@ -53,7 +53,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter address',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}, {
 	    name: 'location',
@@ -61,7 +61,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter location',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}, {
 	    name: 'state',
@@ -69,7 +69,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter state',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}, {
 	    name: 'emailId',
@@ -77,15 +77,15 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    required: true,
 	    placeholder: 'Enter EmailId',
 	    type: {
-	        view: 'input'
+	        view: 'email'
 	    }
 	}, {
 	    name: 'activeState',
 	    title: 'Active state',
-	    required: true,
+	    required: false,
 	    placeholder: 'Current active state',
 	    type: {
-	        view: 'input'
+	        view: 'text'
 	    }
 	}];
 
