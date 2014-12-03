@@ -1,21 +1,21 @@
 [{
     "id": "Product",
     "title": "Products",
-    "accessLevel": "accessLevels.admin",
+    "accessLevel": "accessLevels.user",
     "uisref": "products.list",
     "items": [{
         "title": "View",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "products.list",
         "faClass": "fa fa-list-alt fa-fw"
     }, {
         "title": "Create",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "products.create",
         "faClass": "fa fa-file fa-fw"
     }, {
         "title": "Update",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "products.update",
         "faClass": "fa fa-pencil-square-o fa-fw"
     }, {
@@ -31,17 +31,17 @@
     "uisref": "customers.list",
     "items": [{
         "title": "View",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "customers.list",
         "faClass": "fa fa-list-alt fa-fw"
     }, {
         "title": "Create",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "customers.create",
         "faClass": "fa fa-file fa-fw"
     }, {
         "title": "Update",
-        "accessLevel": "accessLevels.admin",
+        "accessLevel": "accessLevels.user",
         "uisref": "customers.update",
         "faClass": "fa fa-pencil-square-o fa-fw"
     }, {

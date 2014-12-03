@@ -1,6 +1,6 @@
 var app = angular.module('CustomerCtrl', []);
 
-app.controller('CustomerController', function($scope, $http, MenuConfig, modalService){
+app.controller('CustomerController', function($scope, $http, MenuConfig, modalService, Auth){
 
 	$scope.formData = {
 	    name: '',
@@ -114,6 +114,8 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	        searchLabel: 'Search'
 	    }
 	};
+
+	$scope.accessLevels = Auth.accessLevels;
 
 	//FIXME: Pass param as customer to retrive only those menu items
 	MenuConfig.getAll(function(response){

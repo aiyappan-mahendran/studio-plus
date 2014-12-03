@@ -31,21 +31,21 @@ var routes = [
         path: '/api/products',
         httpMethod: 'GET',
         middleware: [ProductCtrl.getAllProducts],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },
 
     {
         path: '/api/products',
         httpMethod: 'POST',
         middleware: [ProductCtrl.createProduct],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },
 
     {
         path: '/api/products',
         httpMethod: 'PUT',
         middleware: [ProductCtrl.updateProduct],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.user
     },
     
     {
@@ -79,7 +79,7 @@ var routes = [
         path: '/api/customers/:customer_id',
         httpMethod: 'DELETE',
         middleware: [CustomerCtrl.deleteCustomer],
-        accessLevel: accessLevels.user
+        accessLevel: accessLevels.admin
     },	
     {
         path: '/login',

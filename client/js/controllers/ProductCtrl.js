@@ -1,6 +1,6 @@
 var app = angular.module('ProductCtrl', []);
 
-app.controller('ProductController', function($scope, $http, MenuConfig, modalService){
+app.controller('ProductController', function($scope, $http, MenuConfig, modalService, Auth){
 	
 	$scope.formData = {
 	    name: '',
@@ -78,6 +78,8 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	        searchLabel: 'Search'
 	    }
 	};
+
+	$scope.accessLevels = Auth.accessLevels;
 
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){

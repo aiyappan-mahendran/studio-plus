@@ -29,7 +29,7 @@ function($stateProvider, $urlRouterProvider) {
         abstract:true,
         controller: 'ProductController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('products.list', {
@@ -37,7 +37,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/list.html',
         controller: 'ProductController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('products.create', {
@@ -45,7 +45,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/create.html',
         controller: 'ProductController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('products.update', {
@@ -53,7 +53,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/update.html',
         controller: 'ProductController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('products.delete', {
@@ -70,7 +70,7 @@ function($stateProvider, $urlRouterProvider) {
         abstract:true,
         controller: 'CustomerController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('customers.list', {
@@ -78,7 +78,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/list.html',
         controller: 'CustomerController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('customers.create', {
@@ -86,7 +86,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/create.html',
         controller: 'CustomerController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('customers.update', {
@@ -94,7 +94,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/forms/update.html',
         controller: 'CustomerController', 
         data: {
-            access: access.admin
+            access: access.user
         }
     })
     .state('customers.delete', {
