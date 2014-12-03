@@ -7,7 +7,8 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    code: '',
 	    minQuantity: '',
 	    price: '',
-	    activeState: ''
+	    activeState: '',
+	    deliveryDate: ''
 	};
 
 	$scope.fields = [{
@@ -53,8 +54,7 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 				{id: 1, name: 'InActive'}  
 			] 	        
 	    }
-	}
-	];
+	}	];
 
 	$scope.form = {
 	    insertForm: {
@@ -101,30 +101,32 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 		$http.post('/api/products', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {};
-				$scope.listItems = data;
+				toastr.success('Product added successfully');
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
-		toastr.success('Product added successfully');
+		
 	};
 
 	$scope.update = function() {
 		$http.put('/api/products', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {};
-				$scope.listItems = data;
+				toastr.success('Product updated successfully');
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
-		toastr.success('Product updated successfully');
+		
 	};
 	
 	$scope.delete = function() {
-		$http.delete('/api/products/' + $scope.formData._id)
+		$scope.formData.activeState='Deleted';
+		$http.put('/api/products', $scope.formData)
 			.success(function(data) {
-				$scope.listItems = data;
+				$scope.formData = {};
+				toastr.success('Product deleted successfully');
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);

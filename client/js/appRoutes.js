@@ -56,6 +56,14 @@ function($stateProvider, $urlRouterProvider) {
             access: access.admin
         }
     })
+    .state('products.delete', {
+        url: '',
+        templateUrl: 'views/forms/delete.html',
+        controller: 'ProductController', 
+        data: {
+            access: access.admin
+        }
+    })
     .state('customers', {
         url: '/customers',
         templateUrl: 'views/forms/layout.html',
@@ -84,6 +92,14 @@ function($stateProvider, $urlRouterProvider) {
     .state('customers.update', {
         url: '',
         templateUrl: 'views/forms/update.html',
+        controller: 'CustomerController', 
+        data: {
+            access: access.admin
+        }
+    })
+    .state('customers.delete', {
+        url: '',
+        templateUrl: 'views/forms/delete.html',
         controller: 'CustomerController', 
         data: {
             access: access.admin

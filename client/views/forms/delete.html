@@ -1,0 +1,24 @@
+<h2>{{form.deleteForm.heading}}</h2>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form role="form" name="myForm">
+                <div class="row">
+                    <div class="form-group">
+                    <button type="submit" class="btn btn-primary" ng-click="search()" >{{form.deleteForm.searchLabel}}</button>
+                    </div>
+                </div>            
+                <div ng-include="'views/forms/formFields.html'"></div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-7">
+                            <button type="submit" class="btn btn-primary" ng-click="delete()" ng-disabled="myForm.$invalid">{{form.deleteForm.submitLabel}}</button>
+                            <button type="submit" class="btn btn-primary" ng-click="cancel()">{{form.deleteForm.cancelLabel}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

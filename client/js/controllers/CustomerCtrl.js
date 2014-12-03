@@ -106,6 +106,12 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    },
 	    listForm: {
 	    	heading: 'Customers List'
+	    },
+	    deleteForm: {
+	    	heading: 'Delete Customer',
+	    	submitLabel: 'Delete',
+	        cancelLabel: 'Cancel',
+	        searchLabel: 'Search'
 	    }
 	};
 
@@ -132,8 +138,6 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 		$http.post('/api/Customers', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {};
-				$scope.listItems = data;
-				$scope.$parent.$broadcast('CUSTOMER_CHANGED', data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
@@ -145,19 +149,20 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 		$http.put('/api/customers', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {};
-				$scope.listItems = data;
-				$scope.$parent.$broadcast('CUSTOMER_CHANGED', data);
+				toastr.success('Customer updated successfully');
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
-		toastr.success('Customer updated successfully');
+		
 	};
 	
-	$scope.delete = function(id) {
-		$http.delete('/api/Customers/' + id)
+	$scope.delete = function() {
+		$scope.formData.activeState='Deleted';
+		$http.put('/api/Customers', $scope.formData)
 			.success(function(data) {
-				$scope.listItems = data;
+				$scope.formData = {};
+				toastr.success('Customer deleted successfully');
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);

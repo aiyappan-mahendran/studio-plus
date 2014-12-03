@@ -1,7 +1,7 @@
 var Product = require('../models/product');
 module.exports = {
     getAllProducts: function(req, res, next) {
-        Product.find({}).sort({'_id': -1}).exec(function(err, products) {
+        Product.find({activeState: {$ne: 'Deleted'}}).sort({'_id': -1}).exec(function(err, products) {
             if (err) {
                 return next(err);
             }

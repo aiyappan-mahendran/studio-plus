@@ -1,7 +1,7 @@
 var Customer = require('../models/customer');
 module.exports = {
 	getAllCustomers : function(req, res, next) {
-		Customer.find({}).sort({'_id': -1}).exec(function(err, customers) {
+		Customer.find({activeState: {$ne: 'Deleted'}}).sort({'_id': -1}).exec(function(err, customers) {
             if (err) {
                 return next(err);
             }

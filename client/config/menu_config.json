@@ -18,6 +18,11 @@
         "accessLevel": "accessLevels.admin",
         "uisref": "products.update",
         "faClass": "fa fa-pencil-square-o fa-fw"
+    }, {
+        "title": "Delete",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "products.delete",
+        "faClass": "fa fa-times fa-fw"
     }]
 }, {
     "id": "Customer",
@@ -39,5 +44,10 @@
         "accessLevel": "accessLevels.admin",
         "uisref": "customers.update",
         "faClass": "fa fa-pencil-square-o fa-fw"
+    }, {
+        "title": "Delete",
+        "accessLevel": "accessLevels.admin",
+        "uisref": "customers.delete",
+        "faClass": "fa fa-times fa-fw"
     }]
 }]
