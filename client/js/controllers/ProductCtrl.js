@@ -13,9 +13,10 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 
 	$scope.fields = [{
 	    name: 'name',
-	    title: 'Product name',
+	    title: 'Name',
 	    required: true,
 	    placeholder: 'Enter product name',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -24,14 +25,16 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    title: 'Code',
 	    required: true,
 	    placeholder: 'Enter product code',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
 	},{
 	    name: 'minQuantity',
-	    title: 'Product quantity',
+	    title: 'Min Quantity',
 	    required: true,
 	    placeholder: 'Enter product quantity',
+	    selected: true,
 	    type: {
 	        view: 'number'
 	    }
@@ -40,13 +43,15 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    title: 'Price',
 	    required: true,
 	    placeholder: 'Enter product price',
+	    selected: true,
 	    type: {
 	        view: 'number'
 	    }
 	},{
 	    name: 'activeState',
-	    title: 'Active state',
+	    title: 'Active State',
 	    required: false,
+	    selected: true,
 	    type: {
 	        view: 'dropdown',
 			options: [  
@@ -80,6 +85,24 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	};
 
 	$scope.accessLevels = Auth.accessLevels;
+	$scope.myFields = [];
+
+	intialize = function(){
+		for (var i in $scope.fields) {
+			$scope.myFields.push($scope.fields[i].name);
+		}
+	}
+
+	intialize();
+
+	$scope.changeColumns = function(value, i) {
+	    var index = $scope.myFields.indexOf(value);
+	    if (index === -1) {
+	        $scope.myFields.splice(i,0,value);
+	    } else {
+	        $scope.myFields.splice(index, 1);
+	    }
+	}
 
 	//FIXME: Pass param as product to retrive only those menu items
 	MenuConfig.getAll(function(response){

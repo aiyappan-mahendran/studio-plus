@@ -1,8 +1,21 @@
 <h2>{{form.listForm.heading}}</h2>
+
+<accordion close-others="oneAtATime">
+<accordion-group is-open="status.open">
+    <accordion-heading>
+        Hide Columns <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+    </accordion-heading>
+    <label class="checkbox-inline no_indent" ng-repeat="field in fields">
+	    <input type="checkbox" ng-model="field.selected" ng-change="changeColumns(field.name, $index)"/>
+	    {{field.title}}
+    </label>
+</accordion-group>
+</accordion>
+
 <div class="row">
     <div class="col-md-12">
         <div class="data-table">
-            <table tr-ng-grid="" items="listItems" selection-mode="None" page-items="10">
+            <table tr-ng-grid="" fields="myFields" items="listItems" selection-mode="None" page-items="10">
             </table>
         </div>
     </div>

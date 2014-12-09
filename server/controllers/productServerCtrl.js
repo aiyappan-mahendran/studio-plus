@@ -1,7 +1,13 @@
 var Product = require('../models/product');
 module.exports = {
     getAllProducts: function(req, res, next) {
-        Product.find({activeState: {$ne: 'Deleted'}}).sort({'_id': -1}).exec(function(err, products) {
+        Product.find({
+            activeState: {
+                $ne: 'Deleted'
+            }
+        }).sort({
+            '_id': -1
+        }).exec(function(err, products) {
             if (err) {
                 return next(err);
             }
@@ -23,12 +29,14 @@ module.exports = {
             if (err) {
                 return next(err);
             }
-        	Product.find({}).sort({'_id': -1}).exec(function(err, products) {
-	            if (err) {
-	                return next(err);
-	            }
-	            res.json(products);
-	        });
+            Product.find({}).sort({
+                '_id': -1
+            }).exec(function(err, products) {
+                if (err) {
+                    return next(err);
+                }
+                res.json(products);
+            });
         });
     },
 
@@ -38,23 +46,25 @@ module.exports = {
         }, function(err, product) {
             if (!err) {
                 product.code = req.body.code,
-                    product.name = req.body.name,
-                    product.minQuantity = req.body.minQuantity,
-                    product.price = req.body.price,
-                    product.activeState = req.body.activeState,
+                product.name = req.body.name,
+                product.minQuantity = req.body.minQuantity,
+                product.price = req.body.price,
+                product.activeState = req.body.activeState,
 
-                    product.save(function(err) {
+                product.save(function(err) {
+                    if (err) {
+                        console.log('error : ' + error);
+                        return next(err);
+                    }
+                    Product.find({}).sort({
+                        '_id': -1
+                    }).exec(function(err, products) {
                         if (err) {
-                            console.log('error : ' + error);
                             return next(err);
                         }
-			        	Product.find({}).sort({'_id': -1}).exec(function(err, products) {
-				            if (err) {
-				                return next(err);
-				            }
-				            res.json(products);
-				        });
+                        res.json(products);
                     });
+                });
             }
         });
 
@@ -68,12 +78,14 @@ module.exports = {
             if (err) {
                 return next(err);
             }
-        	Product.find({}).sort({'_id': -1}).exec(function(err, products) {
-	            if (err) {
-	                return next(err);
-	            }
-	            res.json(products);
-	        });
+            Product.find({}).sort({
+                '_id': -1
+            }).exec(function(err, products) {
+                if (err) {
+                    return next(err);
+                }
+                res.json(products);
+            });
         });
     }
 };

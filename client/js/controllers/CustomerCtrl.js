@@ -20,6 +20,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Name',
 	    required: true,
 	    placeholder: 'Enter customer name',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -28,6 +29,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Code',
 	    required: true,
 	    placeholder: 'Enter customer code',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -36,6 +38,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'MobileNo',
 	    required: true,
 	    placeholder: 'Enter MobileNo',
+	    selected: true,
 	    type: {
 	        view: 'number'
 	    }
@@ -44,6 +47,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Phone',
 	    required: true,
 	    placeholder: 'Enter Phone',
+	    selected: true,
 	    type: {
 	        view: 'number'
 	    }
@@ -52,6 +56,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Address',
 	    required: true,
 	    placeholder: 'Enter address',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -60,6 +65,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Location',
 	    required: true,
 	    placeholder: 'Enter location',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -68,6 +74,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'State',
 	    required: true,
 	    placeholder: 'Enter state',
+	    selected: true,
 	    type: {
 	        view: 'text'
 	    }
@@ -76,6 +83,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    title: 'Email',
 	    required: true,
 	    placeholder: 'Enter EmailId',
+	    selected: true,
 	    type: {
 	        view: 'email'
 	    }
@@ -83,6 +91,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    name: 'activeState',
 	    title: 'Active state',
 	    required: false,
+	    selected: true,
 	    type: {
 	        view: 'dropdown',
 			options: [  
@@ -116,6 +125,24 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	};
 
 	$scope.accessLevels = Auth.accessLevels;
+	$scope.myFields = [];
+
+	intialize = function(){
+		for (var i in $scope.fields) {
+			$scope.myFields.push($scope.fields[i].name);
+		}
+	}
+
+	intialize();
+
+	$scope.changeColumns = function(value, i) {
+	    var index = $scope.myFields.indexOf(value);
+	    if (index === -1) {
+	        $scope.myFields.splice(i,0,value);
+	    } else {
+	        $scope.myFields.splice(index, 1);
+	    }
+	}
 
 	//FIXME: Pass param as customer to retrive only those menu items
 	MenuConfig.getAll(function(response){
