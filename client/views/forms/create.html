@@ -3,12 +3,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <form role="form" name="myForm">
+            <form role="form" name="outerForm">
             <div ng-include="'views/forms/formFields.html'"></div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-7">
-                            <button type="submit" class="btn btn-primary" ng-click="create()" ng-disabled="myForm.$invalid">{{form.insertForm.submitLabel}} </button>
+                            <button type="submit" class="btn btn-primary" ng-click="create()" ng-disabled="outerForm.$invalid">{{form.insertForm.submitLabel}} </button>
                             <button type="button" class="btn btn-primary" ng-click="cancel()">{{form.insertForm.cancelLabel}}</button>
                         </div>
                     </div>
