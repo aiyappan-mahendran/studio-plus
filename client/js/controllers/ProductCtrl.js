@@ -18,7 +18,9 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    placeholder: 'Enter product name',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	},{
 	    name: 'code',
@@ -27,7 +29,9 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    placeholder: 'Enter product code',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	},{
 	    name: 'minQuantity',

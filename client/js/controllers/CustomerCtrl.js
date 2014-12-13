@@ -22,7 +22,9 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    placeholder: 'Enter customer name',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	}, {
 	    name: 'code',
@@ -31,7 +33,9 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    placeholder: 'Enter customer code',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	}, {
 	    name: 'mobileNo',
@@ -58,7 +62,9 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    placeholder: 'Enter address',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	}, {
 	    name: 'location',
@@ -67,7 +73,9 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    placeholder: 'Enter location',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	}, {
 	    name: 'state',
@@ -76,7 +84,9 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    placeholder: 'Enter state',
 	    selected: true,
 	    type: {
-	        view: 'text'
+	        view: 'text',
+		    minLength:3,
+		    maxLength:20
 	    }
 	}, {
 	    name: 'emailId',
