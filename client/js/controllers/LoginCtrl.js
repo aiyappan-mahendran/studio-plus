@@ -1,4 +1,4 @@
-angular.module('LoginCtrl', []).controller('LoginController', function($scope, $http, $location, Auth, $rootScope) {
+angular.module('controllers').controller('LoginController', function($scope, $http, $location, Auth, $rootScope) {
 	$scope.user = {};
 	$scope.login = function() {
 		Auth.login({

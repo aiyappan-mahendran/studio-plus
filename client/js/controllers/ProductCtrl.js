@@ -1,4 +1,4 @@
-var app = angular.module('ProductCtrl', []);
+var app = angular.module('controllers');
 
 app.controller('ProductController', function($scope, $http, MenuConfig, modalService, Auth){
 	

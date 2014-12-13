@@ -1,4 +1,4 @@
-var app = angular.module('CustomerCtrl', []);
+var app = angular.module('controllers');
 
 app.controller('CustomerController', function($scope, $http, MenuConfig, modalService, Auth){
 

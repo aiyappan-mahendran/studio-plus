@@ -1,4 +1,4 @@
-angular.module('NavCtrl', [])
+angular.module('controllers')
 .controller('NavController', function($scope, Auth, MenuConfig) {
 	$scope.user = Auth.user;
 	$scope.userRoles = Auth.userRoles;
