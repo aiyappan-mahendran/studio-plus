@@ -60,10 +60,10 @@ angular.module('services', ['ngCookies'])
         user: currentUser
     };
 })
-.factory('MenuConfig', function($http) {
+.factory('ConfigFactory', function($http) {
     return {
-        getAll: function(success) {
-            $http.get('config/menu_config.json').success(function(response) {
+        getConfig: function(url, success) {
+            $http.get(url).success(function(response) {
                 success(response);
             }); 
         }

@@ -1,0 +1,98 @@
+[{
+    "name": "name",
+    "title": "Name",
+    "required": "true",
+    "placeholder": "Enter customer name",
+    "selected": "true",
+    "type": {
+        "view": "text",
+        "minLength": "3",
+        "maxLength": "20"
+    }
+}, {
+    "name": "code",
+    "title": "Code",
+    "required": "true",
+    "placeholder": "Enter customer code",
+    "selected": "true",
+    "type": {
+        "view": "text",
+        "minLength": "3",
+        "maxLength": "20"
+    }
+}, {
+    "name": "mobileNo",
+    "title": "MobileNo",
+    "required": "true",
+    "placeholder": "Enter MobileNo",
+    "selected": "true",
+    "type": {
+        "view": "number"
+    }
+}, {
+    "name": "phoneNo",
+    "title": "Phone",
+    "required": "true",
+    "placeholder": "Enter Phone",
+    "selected": "true",
+    "type": {
+        "view": "number"
+    }
+}, {
+    "name": "address",
+    "title": "Address",
+    "required": "true",
+    "placeholder": "Enter address",
+    "selected": "true",
+    "type": {
+        "view": "text",
+        "minLength": "3",
+        "maxLength": "20"
+    }
+}, {
+    "name": "location",
+    "title": "Location",
+    "required": "true",
+    "placeholder": "Enter location",
+    "selected": "true",
+    "type": {
+        "view": "text",
+        "minLength": "3",
+        "maxLength": "20"
+    }
+}, {
+    "name": "state",
+    "title": "State",
+    "required": "true",
+    "placeholder": "Enter state",
+    "selected": "true",
+    "type": {
+        "view": "text",
+        "minLength": "3",
+        "maxLength": "20"
+    }
+}, {
+    "name": "emailId",
+    "title": "Email",
+    "required": "true",
+    "placeholder": "Enter EmailId",
+    "selected": "true",
+    "type": {
+        "view": "email"
+    }
+}, {
+    "name": "activeState",
+    "title": "Active state",
+    "required": "false",
+    "selected": "true",
+    "type": {
+        "view": "dropdown",
+        "options": [{
+            "id": "0",
+            "name": "Active"
+        }, {
+            "id": "1",
+            "name": "InActive"
+        }]
+    }
+}]

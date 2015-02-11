@@ -1,6 +1,6 @@
 var app = angular.module('controllers');
 
-app.controller('ProductController', function($scope, $http, MenuConfig, modalService, Auth){
+app.controller('ProductController', function($scope, $http, ConfigFactory, modalService, Auth){
 	
 	$scope.formData = {
 	    name: '',
@@ -10,60 +10,14 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    activeState: '',
 	    deliveryDate: ''
 	};
+	$scope.myFields = [];
 
-	$scope.fields = [{
-	    name: 'name',
-	    title: 'Name',
-	    required: true,
-	    placeholder: 'Enter product name',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	},{
-	    name: 'code',
-	    title: 'Code',
-	    required: true,
-	    placeholder: 'Enter product code',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	},{
-	    name: 'minQuantity',
-	    title: 'Min Quantity',
-	    required: true,
-	    placeholder: 'Enter product quantity',
-	    selected: true,
-	    type: {
-	        view: 'number'
-	    }
-	},{
-	    name: 'price',
-	    title: 'Price',
-	    required: true,
-	    placeholder: 'Enter product price',
-	    selected: true,
-	    type: {
-	        view: 'number'
-	    }
-	},{
-	    name: 'activeState',
-	    title: 'Active State',
-	    required: false,
-	    selected: true,
-	    type: {
-	        view: 'dropdown',
-			options: [  
-				{id: 0, name: 'Active'},  
-				{id: 1, name: 'InActive'}  
-			] 	        
-	    }
-	}	];
+	ConfigFactory.getConfig('config/product/fields.json', function(responseJson){
+		$scope.fields = responseJson;
+		for (var i in $scope.fields) {
+			$scope.myFields.push($scope.fields[i].name);
+		}
+	});
 
 	$scope.form = {
 	    insertForm: {
@@ -89,15 +43,6 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	};
 
 	$scope.accessLevels = Auth.accessLevels;
-	$scope.myFields = [];
-
-	intialize = function(){
-		for (var i in $scope.fields) {
-			$scope.myFields.push($scope.fields[i].name);
-		}
-	}
-
-	intialize();
 
 	$scope.changeColumns = function(value, i) {
 	    var index = $scope.myFields.indexOf(value);
@@ -108,8 +53,9 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
 	    }
 	}
 
+
 	//FIXME: Pass param as product to retrive only those menu items
-	MenuConfig.getAll(function(response){
+	ConfigFactory.getConfig('config/menu_config.json', function(response){
 		for (var i = 0; i < response.length; i++) {
 			if (response[i].id==='Product'){
 				$scope.menus = response[i].items;
@@ -172,6 +118,10 @@ app.controller('ProductController', function($scope, $http, MenuConfig, modalSer
         modalService.showModal({}, modalOptions).then(function (result) {
             $scope.formData = angular.copy(result[0]);
         });
+	};
+
+	$scope.saveColumnHeaders = function(){
+		alert($scope.myFields);
 	};
 
 });

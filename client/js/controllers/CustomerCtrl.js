@@ -1,6 +1,6 @@
 var app = angular.module('controllers');
 
-app.controller('CustomerController', function($scope, $http, MenuConfig, modalService, Auth){
+app.controller('CustomerController', function($scope, $http, ConfigFactory, modalService, Auth){
 
 	$scope.formData = {
 	    name: '',
@@ -13,103 +13,14 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	    emailId: '',
 	    activeState: ''
 	};
+	$scope.myFields = [];
 
-
-	$scope.fields = [{
-	    name: 'name',
-	    title: 'Name',
-	    required: true,
-	    placeholder: 'Enter customer name',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	}, {
-	    name: 'code',
-	    title: 'Code',
-	    required: true,
-	    placeholder: 'Enter customer code',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	}, {
-	    name: 'mobileNo',
-	    title: 'MobileNo',
-	    required: true,
-	    placeholder: 'Enter MobileNo',
-	    selected: true,
-	    type: {
-	        view: 'number'
-	    }
-	}, {
-	    name: 'phoneNo',
-	    title: 'Phone',
-	    required: true,
-	    placeholder: 'Enter Phone',
-	    selected: true,
-	    type: {
-	        view: 'number'
-	    }
-	}, {
-	    name: 'address',
-	    title: 'Address',
-	    required: true,
-	    placeholder: 'Enter address',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	}, {
-	    name: 'location',
-	    title: 'Location',
-	    required: true,
-	    placeholder: 'Enter location',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	}, {
-	    name: 'state',
-	    title: 'State',
-	    required: true,
-	    placeholder: 'Enter state',
-	    selected: true,
-	    type: {
-	        view: 'text',
-		    minLength:3,
-		    maxLength:20
-	    }
-	}, {
-	    name: 'emailId',
-	    title: 'Email',
-	    required: true,
-	    placeholder: 'Enter EmailId',
-	    selected: true,
-	    type: {
-	        view: 'email'
-	    }
-	}, {
-	    name: 'activeState',
-	    title: 'Active state',
-	    required: false,
-	    selected: true,
-	    type: {
-	        view: 'dropdown',
-			options: [  
-				{id: 0, name: 'Active'},  
-				{id: 1, name: 'InActive'}  
-			] 	        
-	    }
-	}];
+	ConfigFactory.getConfig('config/customer/fields.json', function(responseJson){
+		$scope.fields = responseJson;
+		for (var i in $scope.fields) {
+			$scope.myFields.push($scope.fields[i].name);
+		}
+	});
 
 	$scope.form = {
 	    insertForm: {
@@ -135,15 +46,6 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	};
 
 	$scope.accessLevels = Auth.accessLevels;
-	$scope.myFields = [];
-
-	intialize = function(){
-		for (var i in $scope.fields) {
-			$scope.myFields.push($scope.fields[i].name);
-		}
-	}
-
-	intialize();
 
 	$scope.changeColumns = function(value, i) {
 	    var index = $scope.myFields.indexOf(value);
@@ -155,7 +57,7 @@ app.controller('CustomerController', function($scope, $http, MenuConfig, modalSe
 	}
 
 	//FIXME: Pass param as customer to retrive only those menu items
-	MenuConfig.getAll(function(response){
+	ConfigFactory.getConfig('config/menu_config.json',function(response){
 		for (var i = 0; i < response.length; i++) {
 			if (response[i].id==='Customer'){
 				$scope.menus = response[i].items;
