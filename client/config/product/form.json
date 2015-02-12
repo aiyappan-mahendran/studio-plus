@@ -1,0 +1,22 @@
+{
+    "insertForm": {
+        "heading": "Add new products",
+        "submitLabel": "Send For Approval",
+        "cancelLabel": "Cancel"
+    },
+    "updateForm": {
+        "heading": "Update products",
+        "submitLabel": "Send For Approval",
+        "cancelLabel": "Cancel",
+        "searchLabel": "Search"
+    },
+    "listForm": {
+        "heading": "Products List"
+    },
+    "deleteForm": {
+        "heading": "Delete Product",
+        "submitLabel": "Delete",
+        "cancelLabel": "Cancel",
+        "searchLabel": "Search"
+    }
+}

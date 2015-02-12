@@ -1,9 +1,9 @@
 [{
     "name": "name",
     "title": "Name",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter product name",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -12,9 +12,9 @@
 }, {
     "name": "code",
     "title": "Code",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter product code",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -23,26 +23,26 @@
 }, {
     "name": "minQuantity",
     "title": "Min Quantity",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter product quantity",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "number"
     }
 }, {
     "name": "price",
     "title": "Price",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter product price",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "number"
     }
 }, {
     "name": "activeState",
     "title": "Active State",
-    "required": "false",
-    "selected": "true",
+    "required": false,
+    "selected": true,
     "type": {
         "view": "dropdown",
         "options": [{

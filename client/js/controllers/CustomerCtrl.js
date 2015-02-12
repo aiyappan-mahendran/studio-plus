@@ -22,28 +22,9 @@ app.controller('CustomerController', function($scope, $http, ConfigFactory, moda
 		}
 	});
 
-	$scope.form = {
-	    insertForm: {
-	        heading: 'Add new customer',
-	        submitLabel: 'Send For Approval',
-	        cancelLabel: 'Cancel'
-	    },
-	    updateForm: {
-	        heading: 'Update customer',
-	        submitLabel: 'Send For Approval',
-	        cancelLabel: 'Cancel',
-			searchLabel: 'Search'	    	
-	    },
-	    listForm: {
-	    	heading: 'Customers List'
-	    },
-	    deleteForm: {
-	    	heading: 'Delete Customer',
-	    	submitLabel: 'Delete',
-	        cancelLabel: 'Cancel',
-	        searchLabel: 'Search'
-	    }
-	};
+	ConfigFactory.getConfig('config/customer/form.json', function(responseJson) {
+        $scope.form = responseJson;
+    });
 
 	$scope.accessLevels = Auth.accessLevels;
 

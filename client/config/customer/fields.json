@@ -1,9 +1,9 @@
 [{
     "name": "name",
     "title": "Name",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter customer name",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -12,9 +12,9 @@
 }, {
     "name": "code",
     "title": "Code",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter customer code",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -23,27 +23,27 @@
 }, {
     "name": "mobileNo",
     "title": "MobileNo",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter MobileNo",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "number"
     }
 }, {
     "name": "phoneNo",
     "title": "Phone",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter Phone",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "number"
     }
 }, {
     "name": "address",
     "title": "Address",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter address",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -52,9 +52,9 @@
 }, {
     "name": "location",
     "title": "Location",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter location",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -63,9 +63,9 @@
 }, {
     "name": "state",
     "title": "State",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter state",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "text",
         "minLength": "3",
@@ -74,17 +74,17 @@
 }, {
     "name": "emailId",
     "title": "Email",
-    "required": "true",
+    "required": true,
     "placeholder": "Enter EmailId",
-    "selected": "true",
+    "selected": true,
     "type": {
         "view": "email"
     }
 }, {
     "name": "activeState",
     "title": "Active state",
-    "required": "false",
-    "selected": "true",
+    "required": false,
+    "selected": true,
     "type": {
         "view": "dropdown",
         "options": [{
