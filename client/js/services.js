@@ -63,7 +63,7 @@ angular.module('services', ['ngCookies'])
 .factory('ConfigFactory', function($http) {
     return {
         getConfig: function(url, success) {
-            $http.get(url).success(function(response) {
+            $http.get(url,{cache:true}).success(function(response) {
                 success(response);
             }); 
         }
